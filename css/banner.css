@@ -1,0 +1,55 @@
+.banner-top {
+  padding-top: 28px;
+  height: 20px;
+  background-color: #e67e22;
+  border-radius: 15px 15px 0 0;
+}
+
+.banner-tents {
+  display: flex;
+  margin-top: -66px;
+}
+
+.banner-tents-shadow {
+  max-width: 1280px;
+  width: 95.56%;
+  margin: 0 auto;
+  display: flex;
+  background-color: #34495e;
+  border-radius: 25px;
+}
+
+.tent-yellow {
+  width: 12.5%;
+  height: 45px;
+  background-color: #f1c40f;
+  border-radius: 0 0 25px 25px;
+}
+
+.tent-red {
+  width: 12.5%;
+  height: 45px;
+  background-color: #c0392b;
+  border-radius: 0 0 25px 25px;
+}
+
+.banner-back {
+  max-width: 1280px;
+  width: 95.56%;
+  margin: 0 auto;
+  height: 468px;
+  background-color: #34495e;
+}
+
+.tent {
+  width: 12.5%;
+  height: 65px;
+  background-color: #1d2a36;
+  border-radius: 0 0 25px 25px;
+}
+
+@media (max-width: 768px) {
+  .banner-back {
+    max-width: 728px;
+  }
+}

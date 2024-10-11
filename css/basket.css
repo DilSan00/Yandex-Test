@@ -1,0 +1,32 @@
+.basket {
+  position: absolute;
+  bottom: -140px;
+  left: 35%;
+  z-index: 12;
+}
+
+.basket .product {
+  display: block;
+  position: absolute;
+  bottom: -140px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
+}
+
+.basket-save {
+  position: relative;
+  z-index: 12;
+}
+
+.basket-img {
+  position: relative;
+  z-index: 34;
+}
+
+@media (max-width: 768px) {
+  .basket {
+    bottom: -230px;
+    left: 0%;
+  }
+}
