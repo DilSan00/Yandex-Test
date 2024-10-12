@@ -1,17 +1,35 @@
-.shelf1 {
+.shelf {
   position: relative;
-  z-index: 67;
-  transform: translate(0px, -630px);
+  left: 0;
+}
+
+.shelf1 {
+  z-index: 242;
+  top: -480px;
 }
 
 .shelf2 {
-  position: relative;
-  z-index: 24;
-  transform: translate(0px, -730px);
+  z-index: 26;
+  top: -540px;
 }
 
 .shelf3 {
-  transform: translate(0px, -830px);
+  z-index: 1;
+  top: -580px;
+}
+
+@media (max-width: 480px) {
+  .shelf1 {
+    top: -480px;
+  }
+  
+  .shelf2 {
+    top: -540px;
+  }
+  
+  .shelf3 {
+    top: -580px;
+  }
 }
 
 .shelf-top {
@@ -72,10 +90,20 @@
   align-items: flex-end;
   max-width: 1280px;
   width: 95.56%;
+  height: 40px;
   gap: 10%;
   transform: translate(60px, 100px);
 }
 
 .product {
+  position: relative;
+  width: 40px;
+  height: 40px;
   cursor: grab;
+}
+
+.product img {
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
