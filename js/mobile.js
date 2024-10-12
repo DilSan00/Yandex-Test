@@ -1,64 +1,51 @@
-products.forEach((product) => {
-  product.addEventListener("dragstart", (event) => {
-    event.dataTransfer.setData("text/plain", event.target.outerHTML);
-    event.dataTransfer.setData("text/product-id", event.target.innerHTML);
-  });
-});
+const products = document.querySelectorAll(".product");
+const basket = document.getElementById("basket");
+const basketSave = document.getElementById("basket-save");
+const button = document.querySelector(".btn");
 
-basket.addEventListener("dragover", (event) => {
-  event.preventDefault(); 
-});
+let itemCount = 0;
 
-basket.addEventListener("drop", (event) => {
-  event.preventDefault(); 
-
-  const offsetX = event.clientX - basket.getBoundingClientRect().left - 10;
-  const offsetY = event.clientY - basket.getBoundingClientRect().top - 10;
-
-  const newProduct = document.createElement("div");
-  newProduct.classList.add("product");
-  newProduct.innerHTML = event.dataTransfer.getData("text/plain");
-  newProduct.style.position = "absolute";
-  newProduct.style.left = `${offsetX}px`;
-  newProduct.style.top = `${offsetY}px`;
-  newProduct.draggable = true;
-
-  basketSave.appendChild(newProduct);
-
-  const originalProduct = [...products].find(
-    (product) =>
-      product.innerHTML === event.dataTransfer.getData("text/product-id")
-  );
-  if (originalProduct) {
-    originalProduct.remove();
-  }
-
-  itemCount++;
-  button.style.display = itemCount >= 3 ? "block" : "none";
-});
-
-// Touch events для мобильных устройств
 products.forEach((product) => {
   product.addEventListener("touchstart", (event) => {
     const touch = event.touches[0];
+
+    let offsetX = touch.clientX - basket.getBoundingClientRect().left;
+    let offsetY = touch.clientY - basket.getBoundingClientRect().top;
+
     const newProduct = document.createElement("div");
     newProduct.classList.add("product");
     newProduct.innerHTML = product.innerHTML;
     newProduct.style.position = "absolute";
-    newProduct.style.left = `${touch.clientX}px`;
-    newProduct.style.top = `${touch.clientY}px`;
+    newProduct.style.left = `${offsetX}px`;
+    newProduct.style.top = `${offsetY}px`;
+    newProduct.draggable = true;
+    newProduct.id = `product-${itemCount}`;
+
     basketSave.appendChild(newProduct);
 
     itemCount++;
     button.style.display = itemCount >= 3 ? "block" : "none";
 
     const onTouchMove = (moveEvent) => {
+      console.log("x: ", offsetX, "y: ", offsetY);
       const moveTouch = moveEvent.touches[0];
-      newProduct.style.left = `${moveTouch.clientX}px`;
-      newProduct.style.top = `${moveTouch.clientY}px`;
+      let offsetXX = moveTouch.clientX - basket.getBoundingClientRect().left;
+      let offsetYY = moveTouch.clientY - basket.getBoundingClientRect().top;
+      if (offsetYY > 140) {
+        offsetYY = 140;
+      }
+      if (offsetXX > 220) {
+        offsetXX = 220;
+      }
+      if (offsetXX < 80) {
+        offsetXX = 80;
+      }
+      newProduct.style.left = `${offsetXX}px`;
+      newProduct.style.top = `${offsetYY}px`;
     };
 
     const onTouchEnd = () => {
+      console.log("x: ", offsetX, "y: ", offsetY);
       document.removeEventListener("touchmove", onTouchMove);
       document.removeEventListener("touchend", onTouchEnd);
       product.remove();

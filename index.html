@@ -40,7 +40,7 @@
       </div>
 
       <div class="shelfs">
-        <div class="shelf1">
+        <div class="shelf1 shelf">
           <div class="shelf-save">
             <div class="product" draggable="true">
               <img src="./assets/icons/bottle.png" alt="bootle" />
@@ -59,7 +59,7 @@
           <div class="shelf-center"></div>
           <div class="shelf-bottom"></div>
         </div>
-        <div class="shelf2">
+        <div class="shelf2 shelf">
           <div class="shelf-save">
             <div class="product" draggable="true">
               <img src="./assets/icons/product5.png" alt="p5" />
@@ -76,7 +76,7 @@
           <div class="shelf-bottom"></div>
         </div>
 
-        <div class="shelf3">
+        <div class="shelf3 shelf">
           <div class="shelf-save">
             <div class="product" draggable="true">
               <img src="./assets/icons/product8.png" alt="p8" />
@@ -98,20 +98,25 @@
         </div>
       </div>
 
-      <button
-        class="btn"
-        onclick="window.location.href='https://lavka.yandex.ru/'"
-      >
-        Оплатить корзину
-      </button>
-
       <div class="basket" id="basket">
         <div class="basket-save" id="basket-save"></div>
-        <img class="basket-img" draggable="false" src="./assets/img/basket.png" alt="basket" />
+
+        <img
+          class="basket-img"
+          draggable="false"
+          src="./assets/img/basket.png"
+          alt="basket"
+        />
+        <button
+          class="btn"
+          onclick="window.location.href='https://lavka.yandex.ru/'"
+        >
+          Оплатить корзину
+        </button>
       </div>
     </div>
 
-    <script defer src="/js/desctop.js"></script>
-    <script defer src="/js/mobile.js"></script>
+    <script type="module" defer src="/js/desctop.js"></script>
+    <script type="module" defer src="/js/mobile.js"></script>
   </body>
 </html>

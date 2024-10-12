@@ -11,7 +11,7 @@
 body {
   overflow: hidden;
   height: 100dvh;
-  padding: 28px 45px;
+  padding: 22px 45px;
 }
 
 .store {
@@ -22,11 +22,11 @@ body {
 .btn {
   display: none;
   position: absolute;
-  bottom: 0px;
-  left: 50%;
-  transform: translateX(100%);
-  transform: translateY(100%);
-  z-index: 22;
+  bottom: 10px;
+  left: 76px;
+  transform: translateX(-100%);
+  transform: translateY(-100%);
+  z-index: 426;
   font-size: 16px;
   font-weight: 500;
   color: #21201f;
